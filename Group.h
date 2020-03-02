@@ -14,23 +14,23 @@ private:
 public:
 	Group() {}
 
-	Group(string newName, vector <StudentWithVector> newStudents) {
-		name = newName;
-		students = newStudents;
+	Group(string name, vector <StudentWithVector> students) {
+		this->name = name;
+		this->students = students;
 	}
 
-	Group(string newName) {
-		name = newName;
+	Group(string name) {
+		this->name = name;
 	}
 
-	void setName(string newName) {
-		name = newName;
+	void setName(string name) {
+		this->name = name;
 	}
-	void setStudents(vector<StudentWithVector> newStudents) {
-		students = newStudents;
+	void setStudents(vector<StudentWithVector> students) {
+		this->students = students;
 	}
-	void addStudent(StudentWithVector newStudent) {
-		students.push_back(newStudent);
+	void addStudent(StudentWithVector student) {
+		students.push_back(student);
 	}
 	void deleteStudent(StudentWithVector student) {
 		string name = student.getName();

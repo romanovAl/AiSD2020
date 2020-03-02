@@ -4,36 +4,36 @@ using namespace std;
 
 class Exam {
 private:
-    string name;
-    int mark;
-    string date;
+	string name;
+	int mark;
+	string date;
 
 public:
 
-    Exam() {}
+	Exam() {}
 
-    Exam(string newName, int newMark, string newDate) {
-        name = newName;
-        mark = newMark;
-        date = newDate;
-    }
+	Exam(string name, int mark, string date) {
+		this->name = name;
+		this->mark = mark;
+		this->date = date;
+	}
 
-    string getName() {
-        return name;
-    }
-    int getMark() {
-        return mark;
-    }
-    string getDate() {
-        return date;
-    }
-    void setName(string newName) {
-        name = newName;
-    }
-    void setMark(int newMark) {
-        mark = newMark;
-    }
-    void setDate(string newDate) {
-        date = newDate;
-    }
+	string getName() {
+		return name;
+	}
+	int getMark() {
+		return mark;
+	}
+	string getDate() {
+		return date;
+	}
+	void setName(string name) {
+		this->name = name;
+	}
+	void setMark(int mark) {
+		this->mark = mark;
+	}
+	void setDate(string date) {
+		this->date = date;
+	}
 };

@@ -14,13 +14,13 @@ private:
 public:
     StudentWithVector() {}
 
-    StudentWithVector(string newName, vector<Exam> newExamsVector) { //Конструктор 
-        name = newName;
-        examsVector = newExamsVector;
+    StudentWithVector(string name, vector<Exam> examsVector) { //Конструктор 
+        this->name = name;
+        this->examsVector = examsVector;
     };
 
-    StudentWithVector(string newName) {
-        name = newName;
+    StudentWithVector(string name) {
+        this->name = name;
     }
 
     //Получение данных 
@@ -32,16 +32,16 @@ public:
     }
 
     //Изменение данных
-    void setName(string newName) {
-        name = newName;
+    void setName(string name) {
+        this->name = name;
     }
-    void setExams(vector<Exam> newExams) {
-        examsVector = newExams;
+    void setExams(vector<Exam> examsVector) {
+        this->examsVector = examsVector;
     }
 
     //Метод для добавления экземпляра экзамена 
-    void addExam(Exam newExam) {
-        examsVector.push_back(newExam);
+    void addExam(Exam exam) {
+        examsVector.push_back(exam);
     }
 
     void toString1() { //Вывод данных отдельного студента
