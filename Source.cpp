@@ -43,13 +43,13 @@ int main() {
 
     pm.toString1();
 
-    pm.deleteStudent(marina); //УДаляем студента из группы
+    pm.deleteStudent(marina); //Удаляем студента из группы
 
     cout << endl << " --------------------- Группа после удаления ----------------------" << endl;
 
     pm.toString1();
 
-    StudentWithVector stud = pm.findStudent("Александр Романов");
+    StudentWithVector stud = pm.findStudent(alex.getName());
 
     cout << endl << "Ищем студента ..." << endl;
     stud.toString1();

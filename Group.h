@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <iterator>
 #include <string>
 #include "StudentWithVector.h"
 
@@ -33,13 +34,7 @@ public:
 		students.push_back(student);
 	}
 	void deleteStudent(StudentWithVector student) {
-		string name = student.getName();
-		for (int i = 0; i < students.size(); i++) {
-			StudentWithVector curStudent = students[i];
-			if (curStudent.getName() == name) {
-				students.erase(students.begin() + i);
-			}
-		}
+		students.erase(find(begin(students), end(students), student));
 	}
 
 	string getName() {
@@ -51,8 +46,7 @@ public:
 
 	StudentWithVector findStudent(string name) {
 		for (int i = 0; i < students.size(); i++) {
-			StudentWithVector curStudent = students[i];
-			if (curStudent.getName() == name) return curStudent;
+			if (name == students[i].getName()) return students[i];
 		}
 	}
 

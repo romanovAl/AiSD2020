@@ -18,6 +18,13 @@ public:
 		this->date = date;
 	}
 
+	friend bool operator== (const Exam& first, const Exam& second) {
+		if (first.name != second.name
+			|| first.date != second.date
+			|| first.mark != second.mark) return false;
+		return true;
+	}
+
 	string getName() {
 		return name;
 	}
