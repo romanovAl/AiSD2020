@@ -1,65 +1,73 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <iterator>
+#include<map>
 #include <string>
-#include "StudentWithVector.h"
+#include "Gradebook.h"
 
 using namespace std;
 
 class Group {
 private:
 	string name;
-	vector <StudentWithVector> students;
+	map<string, Gradebook> gradebooksVector;
+	vector<string> examsNamesVector;
 
 public:
 	Group() {}
 
-	Group(string name, vector <StudentWithVector> students) {
+	Group(string name, vector<string> namesVector, vector<string> examsNamesVector, vector<vector<int>> examsResultsVector) {
 		this->name = name;
-		this->students = students;
-	}
+		this->examsNamesVector = namesVector;
+		for (size_t i = 0; i < namesVector.size; i++) {
 
-	Group(string name) {
-		this->name = name;
-	}
-
-	void setName(string name) {
-		this->name = name;
-	}
-	void setStudents(vector<StudentWithVector> students) {
-		this->students = students;
-	}
-	void addStudent(StudentWithVector student) {
-		students.push_back(student);
-	}
-	void deleteStudent(StudentWithVector student) {
-		students.erase(find(begin(students), end(students), student));
-	}
-
-	string getName() {
-		return name;
-	}
-	vector<StudentWithVector> getStudentsList() {
-		return students;
-	}
-
-	StudentWithVector findStudent(string name) {
-		for (int i = 0; i < students.size(); i++) {
-			if (name == students[i].getName()) return students[i];
+			gradebooksVector.insert(
+				make_pair(
+					namesVector[i], Gradebook(namesVector, examsResultsVector[i])
+				)
+			);
 		}
 	}
 
-	void toString1() {
-		cout << "Группа - " << name << endl;
+	Group(string groupName, map<string, Gradebook> gradebooksVector) {
+		this->name = groupName;
+		this->gradebooksVector = gradebooksVector;
+	}
 
-		for (int i = 0; i < students.size(); i++) {
-			StudentWithVector curStudent = students[i];
+	~Group() {
 
-			cout << endl << "Предмет" << " | " << "Оценка" << " | " << "Дата" << endl;
+	}
 
-			curStudent.toString1();
+	void deleteGradebook(string fio) {
+		gradebooksVector.erase(gradebooksVector.find(fio));
+	}
 
+	void addGradeBook(string fio, vector<int> resultExam) {
+		gradebooksVector.insert(
+			make_pair(fio, Gradebook(examsNamesVector, resultExam))
+		);
+	}
+
+	void addGradeBook(string fio) {
+		gradebooksVector.insert(
+			make_pair(fio, Gradebook())
+		);
+	}
+
+	void operator+(Group& G) {
+		for (auto cur = G.gradebooksVector.begin(); cur != G.gradebooksVector.end(); ++cur) {
+			this->gradebooksVector.insert(
+				make_pair(cur->first, cur->second)
+			);
 		}
+	}
+
+	void operator-(Group& G) {
+		for (auto cur = G.gradebooksVector.begin(); cur != G.gradebooksVector.end(); ++cur) {
+			this->gradebooksVector.erase(cur->first);
+		}
+	}
+	Gradebook& getGradebook(string key) {
+		return gradebooksVector[key];
 	}
 };

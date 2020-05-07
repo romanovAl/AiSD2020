@@ -18,15 +18,18 @@
     <ClCompile Include="Source.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Gradebook.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exam.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="StudentWithVector.h">
+    <ClInclude Include="Group.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Group.h">
+    <ClInclude Include="Gradebook.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
