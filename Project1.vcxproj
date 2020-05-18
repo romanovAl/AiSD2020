@@ -140,11 +140,13 @@
   <ItemGroup>
     <ClCompile Include="Gradebook.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Subject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exam.h" />
+    <ClInclude Include="Exam1.h" />
     <ClInclude Include="Gradebook.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="Zachet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,8 @@
 #include<map>
 #include <string>
 #include "Gradebook.h"
+#include "Subject.h"
+#include "Zachet.h"
 
 using namespace std;
 
@@ -13,13 +15,15 @@ private:
 	map<string, Gradebook> gradebooksVector;
 	vector<string> examsNamesVector;
 
+	const static std::map<int, std::string> subjectPlane;
+
 public:
 	Group() {}
 
 	Group(string name, vector<string> namesVector, vector<string> examsNamesVector, vector<vector<int>> examsResultsVector) {
 		this->name = name;
 		this->examsNamesVector = namesVector;
-		for (size_t i = 0; i < namesVector.size; i++) {
+		for (size_t i = 0; i < namesVector.size(); i++) {
 
 			gradebooksVector.insert(
 				make_pair(
@@ -71,3 +75,5 @@ public:
 		return gradebooksVector[key];
 	}
 };
+
+

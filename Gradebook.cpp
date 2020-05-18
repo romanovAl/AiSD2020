@@ -20,4 +20,5 @@ istream& operator>> (istream& in, Gradebook& gr) {
 			make_pair(examName, examResult)
 		);
 	}
+	return in;
 }
